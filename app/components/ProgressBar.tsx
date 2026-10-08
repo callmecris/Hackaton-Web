@@ -33,7 +33,7 @@ export default function ProgressBar({ percentage }: { percentage: number }) {
               setPercentage(value);
             }
           }}*/
-          className="w-16 px-2 py-1 border rounded-2xl text-blacks" />
+          className="w-16 px-2 py-1 border rounded-2xl text-black" />
       </div>
     </div>
   );
