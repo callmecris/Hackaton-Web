@@ -54,32 +54,39 @@ export default function PasswordGen() {
     const [requireValidLength, setRequireValidLength] = useState(true);
 
     return (
-        <div>
-            <h1>Password Generator</h1>
-            <h2>Proponemos esta contrasena</h2>
-            <p>{password}</p>
-            <button
-                onClick={async () => {
-                    const newPassword = await generatePassword(
-                        requireUppercase,
-                        requireLowercase,
-                        requireNumber,
-                        requireSpecialCharacter,
-                        requireValidLength
-                    );
-                    setPassword(newPassword);
-                }}
-            >
-                Generate Password
-            </button>
-            <button
-                onClick={() => {
-                    navigator.clipboard.writeText(password);
-                }}
-            >
-                Copy to Clipboard
-            </button>
-            <div>
+        <div className="flex flex-col items-center justify-center gap-4 border border-gray-300 rounded-md p-4">
+            <h1 className="text-2xl font-bold">Password Generator</h1>
+            <h2 className="text-lg font-semibold">Proponemos esta contrasena</h2>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+                <p className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md">
+                    {password}
+                </p>
+                <button
+                    onClick={async () => {
+                        const newPassword = await generatePassword(
+                            requireUppercase,
+                            requireLowercase,
+                            requireNumber,
+                            requireSpecialCharacter,
+                            requireValidLength
+                        );
+                        setPassword(newPassword);
+                    }}
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer"
+                >
+                    Generate Password
+                </button>
+            
+                <button
+                    onClick={() => {
+                        navigator.clipboard.writeText(password);
+                    }}
+                    className="bg-blue-400 text-white px-4 py-2 rounded-md cursor-pointer"
+                >
+                    Copy to Clipboard
+                </button>
+            </div>
+            <div className="flex flex-col items-start justify-center gap-2">
                 <label>
                     <input
                         type="checkbox"
