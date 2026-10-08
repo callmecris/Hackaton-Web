@@ -1,28 +1,39 @@
+
+
 export default function ProgressBar({ percentage }: { percentage: number }) {
   return (
-    <div className="w-full max-w-3xl px-16 py-4 col-auto">
+    <div className="w-full bg-white max-w-3xl px-30 py-54 col-auto border border-solid border-black rounded-2xl items-center justify-center flex flex-col gap-2">
       <div className="flex justify-between mb-1">
-        <span className="text-base font-medium text-blue-700 dark:text-white">
-          Progress
-        </span>
-        <span className="text-sm font-medium text-blue-700 dark:text-white">
-          {percentage}%
+        <span className="text-base font-xl text-black">
+          Progress Bar
         </span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+      <div className="w-full bg-gray-200 rounded-full h-10">
         <div
-          className="bg-blue-600 h-2.5 rounded-full transition-all duration-500 ease-in-out"
+          className="bg-red-400 h-10 rounded-full items-center justify-center flex transition-all duration-500 ease-in-out"
           style={{ width: `${percentage}%` }}
-        ></div>
+        >
+          <span className="text-lg font-medium text-white">
+            {percentage}%
+          </span>
+        </div>
       </div>
-      <div className="flex justify-between mt-1">
-        <input type="text"
-          className="w-16 px-2 py-1 text-sm text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+      <div className="flex mt-1 gap-2 items-center">
+        <h2 className="text-sm font-medium text-black">
+          Input Percentage:
+        </h2>
+        <input 
+          type="number" 
+          min="0" 
+          max="100" 
           value={percentage}
-        />
-        <span className="text-sm font-medium text-blue-700 dark:text-white">
-          100%
-        </span>
+          /*onChange={(e) => {
+            const value = parseInt(e.target.value);
+            if (!isNaN(value) && value >= 0 && value <= 100) {
+              setPercentage(value);
+            }
+          }}*/
+          className="w-16 px-2 py-1 border rounded-2xl text-blacks" />
       </div>
     </div>
   );
