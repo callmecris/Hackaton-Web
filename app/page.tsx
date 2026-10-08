@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import ProgressBar from "./components/ProgressBar";
 import Forms from "./components/Forms";
+import PasswordGen from "./components/PasswordGen";
 import "./globals.css";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <Navbar />
       <ProgressBar percentage={50} />
       <Forms />
+      <PasswordGen />
     </div>
   );
 }
