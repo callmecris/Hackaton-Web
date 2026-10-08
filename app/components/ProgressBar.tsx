@@ -1,6 +1,10 @@
+"use client";
 
+import { useState } from "react";
 
-export default function ProgressBar({ percentage }: { percentage: number }) {
+export default function ProgressBar({ percentage: initialPercentage }: { percentage: number }) {
+  const [percentage, setPercentage] = useState(initialPercentage);
+
   return (
     <div className="w-full bg-white max-w-3xl px-30 py-54 col-auto border border-solid border-black rounded-2xl items-center justify-center flex flex-col gap-2">
       <div className="flex justify-between mb-1">
@@ -27,12 +31,10 @@ export default function ProgressBar({ percentage }: { percentage: number }) {
           min="0" 
           max="100" 
           value={percentage}
-          /*onChange={(e) => {
+          onChange={(e) => {
             const value = parseInt(e.target.value);
-            if (!isNaN(value) && value >= 0 && value <= 100) {
-              setPercentage(value);
-            }
-          }}*/
+            setPercentage(isNaN(value) ? 0 : Math.min(100, Math.max(0, value)));
+          }}
           className="w-16 px-2 py-1 border rounded-2xl text-black" />
       </div>
     </div>
