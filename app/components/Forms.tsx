@@ -16,8 +16,8 @@ export default function Forms() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<label>
+		<form onSubmit={handleSubmit} className="flex flex-col gap-2 items-center justify-center border border-solid border-black rounded-2xl px-4 py-4">
+			<label className="flex gap-1">
 				Username
 				<input
 					value={username}
@@ -28,11 +28,12 @@ export default function Forms() {
 							username: username.trim() ? "" : "Porfa plis ponga un Username :P",
 						}))
 					}
+					className='border border-solid border-black rounded-md px-2 py-1 text-black'
 				/>
 			</label>
 			{errors.username && <p>{errors.username}</p>}
 
-			<label>
+			<label className="flex gap-1">
 				Fullname
 				<input
 					value={fullname}
@@ -43,11 +44,12 @@ export default function Forms() {
 							fullname: /\d/.test(fullname) ? "Creo que no debería contener numeros jeje" : "",
 						}))
 					}
+					className='border border-solid border-black rounded-md px-2 py-1 text-black'
 				/>
 			</label>
 			{errors.fullname && <p>{errors.fullname}</p>}
 
-			<label>
+			<label className="flex gap-1">
 				Age
 				<input
 					type="number"
@@ -59,11 +61,14 @@ export default function Forms() {
 							age: age.trim() && Number.isFinite(Number(age)) ? "" : "Como dice la gente, la edad es un número. No letras",
 						}))
 					}
+					className='border border-solid border-black rounded-md px-2 py-1 text-black'
 				/>
 			</label>
 			{errors.age && <p>{errors.age}</p>}
 
-			<button type="submit">Submit</button>
+			<button type="submit" className="bg-gray-500 text-black px-2">
+				Submit
+			</button>
 		</form>
 	);
 }
